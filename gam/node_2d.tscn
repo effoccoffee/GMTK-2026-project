@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c26uoapu1a05e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y72uc"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(306, 494)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_y72uc")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
