@@ -32,4 +32,25 @@ var isleft = velocity.x < 0
 
 
 
+# This function runs automatically when the Timer hits 0
+func _on_timer_timeout() -> void:
+	print("Time's up! Level failed.")
+	
+	# Option A: Instantly restart the current level
+	get_tree().reload_current_scene()
+	
+	# Option B: Switch to a separate Game Over screen
+	# get_tree().change_scene_to_file("res://scenes/game_over.tscn")ion body
+	# 1. Grab references to your nodes
+# (Make sure these names match your Scene tree exact spelling!)
+@onready var timer: Timer = $"../Timer"
+@onready var timer_label: Label = $"../CanvasLayer/Label"
 
+# 2. Update the label text every frame
+func _process(_delta: float) -> void:
+	if timer and timer_label:
+		# ceil() rounds up so 0.5s remaining still displays as "1"
+		var seconds_left: int = int(ceil(timer.time_left))
+		timer_label.text = "Time: " + str(seconds_left)
+func _ready() -> void:
+	timer.start()

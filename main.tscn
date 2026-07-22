@@ -479,3 +479,18 @@ layer_0/tile_data = PackedInt32Array(655360, 1114112, 8, 655361, 1179648, 8, 655
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_a7xcw")]
 position = Vector2(76, 438)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 100.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
